@@ -1,14 +1,9 @@
 output "id" {
-  description = "ID of the created example"
-  value       = module.example.id
+  description = "The URL for the created Amazon SQS queue."
+  value       = module.sqs_queue.id
 }
 
-output "example" {
-  description = "Output \"example\" from example module"
-  value       = module.example.example
-}
-
-output "random" {
-  description = "Output \"random\" from example module"
-  value       = module.example.random
+output "arn" {
+  description = "The ARN of the SQS queue"
+  value       = module.sqs_queue.arn
 }

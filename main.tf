@@ -1,13 +1,24 @@
-resource "random_integer" "example" {
-  count = module.this.enabled ? 1 : 0
-
-  min = 1
-  max = 50000
-  keepers = {
-    example = var.example
-  }
+locals {
+  enabled = module.this.enabled
 }
 
-locals {
-  example = format("%v %v", var.example, join("", random_integer.example[*].result))
+resource "aws_sqs_queue" "default" {
+  count = local.enabled ? 1 : 0
+
+  name                              = module.this.id
+  visibility_timeout_seconds        = var.visibility_timeout_seconds
+  message_retention_seconds         = var.message_retention_seconds
+  max_message_size                  = var.max_message_size
+  delay_seconds                     = var.delay_seconds
+  receive_wait_time_seconds         = var.receive_wait_time_seconds
+  policy                            = try(var.policy[0], null)
+  redrive_policy                    = try(var.redrive_policy[0], null)
+  fifo_queue                        = var.fifo_queue
+  fifo_throughput_limit             = try(var.fifo_throughput_limit[0], null)
+  content_based_deduplication       = var.content_based_deduplication
+  kms_master_key_id                 = try(var.kms_master_key_id[0], null)
+  kms_data_key_reuse_period_seconds = var.kms_data_key_reuse_period_seconds
+  deduplication_scope               = try(var.deduplication_scope[0], null)
+
+  tags = module.this.tags
 }
