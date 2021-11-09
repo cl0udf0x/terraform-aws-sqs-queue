@@ -1,19 +1,19 @@
 output "url" {
   description = "The URL for the created Amazon SQS queue."
-  value       = local.enabled ? aws_sqs_queue.default[0].url : null
+  value       = module.sqs_queue.url
 }
 
 output "id" {
   description = "The ID for the created Amazon SQS queue. Same as the URL."
-  value       = local.enabled ? aws_sqs_queue.default[0].id : null
+  value       = module.sqs_queue.id
 }
 
 output "name" {
   description = "The name for the created Amazon SQS queue."
-  value       = local.enabled ? module.this.id : null
+  value       = module.sqs_queue.name
 }
 
 output "arn" {
   description = "The ARN of the SQS queue"
-  value       = local.enabled ? aws_sqs_queue.default[0].arn : null
+  value       = module.sqs_queue.arn
 }
