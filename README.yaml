@@ -71,6 +71,10 @@ usage: |-
   ```hcl
   module "sqs_queue" {
     source = "cloudposse/sqs-queue/aws"
+    # Cloud Posse recommends pinning every module to a specific version
+    # version     = "x.x.x"
+
+    name = "hello-world"
   }
   ```
 
