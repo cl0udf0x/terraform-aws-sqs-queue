@@ -5,7 +5,7 @@ locals {
 resource "aws_sqs_queue" "default" {
   count = local.enabled ? 1 : 0
 
-  name                              = module.this.id
+  name                              = var.fifo_queue ? "${module.this.id}.fifo" : module.this.id
   visibility_timeout_seconds        = var.visibility_timeout_seconds
   message_retention_seconds         = var.message_retention_seconds
   max_message_size                  = var.max_message_size
