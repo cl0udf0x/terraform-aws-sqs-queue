@@ -4,7 +4,7 @@ variable "visibility_timeout_seconds" {
   default     = 30
   validation {
     condition = (
-      var.visibility_timeout_seconds > 0 && var.visibility_timeout_seconds < 43200
+      var.visibility_timeout_seconds >= 0 && var.visibility_timeout_seconds <= 43200
     )
     error_message = "Var must be between 0 and 43200."
   }
@@ -16,7 +16,7 @@ variable "message_retention_seconds" {
   default     = 345600
   validation {
     condition = (
-      var.message_retention_seconds > 60 && var.message_retention_seconds < 1209600
+      var.message_retention_seconds >= 60 && var.message_retention_seconds <= 1209600
     )
     error_message = "Var must be between 60 and 1209600."
   }
@@ -28,7 +28,7 @@ variable "max_message_size" {
   default     = 262144
   validation {
     condition = (
-      var.max_message_size > 1024 && var.max_message_size < 262144
+      var.max_message_size >= 1024 && var.max_message_size <= 262144
     )
     error_message = "Var must be between 1024 and 262144."
   }
@@ -40,7 +40,7 @@ variable "delay_seconds" {
   default     = 0
   validation {
     condition = (
-      var.delay_seconds > 0 && var.delay_seconds < 900
+      var.delay_seconds >= 0 && var.delay_seconds <= 900
     )
     error_message = "Var must be between 0 and 900."
   }
@@ -52,7 +52,7 @@ variable "receive_wait_time_seconds" {
   default     = 0
   validation {
     condition = (
-      var.receive_wait_time_seconds > 0 && var.receive_wait_time_seconds < 20
+      var.receive_wait_time_seconds >= 0 && var.receive_wait_time_seconds <= 20
     )
     error_message = "Var must be between 0 and 20."
   }
@@ -106,7 +106,7 @@ variable "kms_data_key_reuse_period_seconds" {
   default     = 300
   validation {
     condition = (
-      var.kms_data_key_reuse_period_seconds > 60 && var.kms_data_key_reuse_period_seconds < 86400
+      var.kms_data_key_reuse_period_seconds >= 60 && var.kms_data_key_reuse_period_seconds <= 86400
     )
     error_message = "Var must be between 60 and 86400."
   }
