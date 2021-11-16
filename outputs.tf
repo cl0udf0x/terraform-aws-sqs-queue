@@ -14,6 +14,6 @@ output "name" {
 }
 
 output "arn" {
-  description = "The ARN of the SQS queue"
+  description = "The ARN of the created SQS queue"
   value       = local.enabled ? aws_sqs_queue.default[0].arn : null
 }
