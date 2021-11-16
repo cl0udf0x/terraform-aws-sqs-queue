@@ -14,6 +14,6 @@ output "name" {
 }
 
 output "arn" {
-  description = "The ARN of the SQS queue"
+  description = "The ARN of the created SQS queue"
   value       = module.sqs_queue.arn
 }
