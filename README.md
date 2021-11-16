@@ -197,7 +197,7 @@ Available targets:
 
 | Name | Description |
 |------|-------------|
-| <a name="output_arn"></a> [arn](#output\_arn) | The ARN of the SQS queue |
+| <a name="output_arn"></a> [arn](#output\_arn) | The ARN of the created SQS queue |
 | <a name="output_id"></a> [id](#output\_id) | The ID for the created Amazon SQS queue. Same as the URL. |
 | <a name="output_name"></a> [name](#output\_name) | The name for the created Amazon SQS queue. |
 | <a name="output_url"></a> [url](#output\_url) | The URL for the created Amazon SQS queue. |
