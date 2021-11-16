@@ -28,8 +28,7 @@
 
 -->
 
-This is `terraform-aws-sqs-queue` project provides all the scaffolding for a typical well-built Cloud Posse module. It's a template repository you can
-use when creating new repositories.
+This is `terraform-aws-sqs-queue` module that will provision an AWS SQS queue.
 
 ---
 
