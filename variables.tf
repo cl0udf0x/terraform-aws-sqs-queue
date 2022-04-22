@@ -65,9 +65,9 @@ variable "policy" {
 }
 
 variable "redrive_policy" {
-  type        = list(string)
+  type        = object
   description = "This is a list of 0 or 1. The JSON policy to set up the Dead Letter Queue, see AWS docs. Note: when specifying maxReceiveCount, you must specify it as an integer (5), and not a string (\"5\")."
-  default     = []
+  default     = {}
 }
 
 variable "fifo_queue" {
